@@ -22,7 +22,7 @@ class pregunta(models.Model):
     nivel_pregunta = models.CharField(max_length=30, choices=niveles, default='GENERAL')
     frecuencia_pregunta = models.IntegerField(choices=frecuencia, default=100)
     tipo_pregunta = models.CharField(max_length=50, choices=tipo, default='Virtual Practica')
-    user = models.ForeignKey(User, on_delete=models.CASCADE, default=NULL)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, default='1')
 
     def __str__(self):
         return 'Pregunta de ' + self.tema_pregunta
