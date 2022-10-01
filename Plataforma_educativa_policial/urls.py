@@ -34,4 +34,4 @@ urlpatterns = [
     path('registrar_pregunta/<int:detalle_id>/', views.pregunta_detalle, name= 'detalle_pregunta'),
     path('registrar_pregunta/<int:detalle_id>/eliminar', views.eliminar_pregunta, name= 'eliminar_pregunta'),
     
-]
+] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) 
