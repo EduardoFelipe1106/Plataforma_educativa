@@ -16,10 +16,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECRET_KEY = 'django-insecure-otjpg4c0#ev8_7&laiv)3qup(!us7=e-%wfel2jo-o4chj$ixx'
 
 #En deploy
+
 SECRET_KEY = os.environ.get('SECRET_KEY', default='your secret key')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
+#in developing
 #DEBUG = True
 
 # ---In deploy---
@@ -28,8 +31,11 @@ DEBUG = 'RENDER' not in os.environ
 
 #ALLOWED_HOSTS = []
 
-#In deploy 
+#In deploy and developing
 ALLOWED_HOSTS = [ ]
+
+
+"""in deploy"""
 
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
@@ -89,7 +95,9 @@ WSGI_APPLICATION = 'Plataforma_educativa_policial.wsgi.application'
         'ENGINE': 'django.db.backends.sqlite3', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
         'NAME': 'sqlite3.db',                      # Or path to database file if using sqlite3.
     }
-}"""
+} """
+
+"""en deploy"""
 
 DATABASES = {
    'default': dj_database_url.config(
@@ -136,13 +144,10 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "Plataforma_educativa_policial/templates"),
+    os.path.join(BASE_DIR, "Plataforma_educativa_policial/static"),
     #'Plataforma_educativa_policial/templates/assets',
     #'Plataforma_educativa_policial/templates/vendor',
 ]
-
-"""Linea de codigo en deploy"""
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 if not DEBUG:    # Tell Django to copy statics to the `staticfiles` directory
     # in your application directory on Render.
