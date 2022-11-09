@@ -136,9 +136,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-    'Plataforma_educativa_policial/templates/assets',
-    'Plataforma_educativa_policial/templates/vendor',
+    os.path.join(BASE_DIR, "Plataforma_educativa_policial/templates"),
+    #'Plataforma_educativa_policial/templates/assets',
+    #'Plataforma_educativa_policial/templates/vendor',
 ]
 
 """Linea de codigo en deploy"""
